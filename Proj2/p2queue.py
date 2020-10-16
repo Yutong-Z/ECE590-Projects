@@ -96,4 +96,7 @@ class Queue:
         self.queue[self.front] = None
         self.front += 1
         self.numElems -= 1
+        # wrap around
+        if self.front == len(self.queue):
+            self.front = 0;
         return temp
