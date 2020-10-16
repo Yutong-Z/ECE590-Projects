@@ -47,33 +47,49 @@ class Stack:
     isFull function to check if the stack is full.
     """
     def isFull(self):
-        ##### IMPLEMENT! #####
-        return
+        if self.numElems == len(self.stack):
+            return True
+        return False
 
     """
     isEmpty function to check if the stack is empty.
     """
     def isEmpty(self):
-        ##### IMPLEMENT! #####
-        return
+        if self.numElems == 0:
+            return True
+        return False
 
     """
     resize function to resize the stack by doubling its size.
     """
     def resize(self):
-        ##### IMPLEMENT! #####
+        size = len(self.stack)
+        temp = [None for x in range(0, size*2)]
+        temp[0:size] = self.stack[:]
+        self.stack = temp
         return
 
     """
     push function to push a value onto the stack.
     """
     def push(self, val):
-        ##### IMPLEMENT! #####
+        if self.isFull():
+            self.resize()
+        self.top += 1
+        self.numElems += 1
+        self.stack[self.top] = val
         return
 
     """
     pop function to pop the value off the top of the stack.
     """
     def pop(self):
-        ##### IMPLEMENT! #####
-        return None
+        if self.isEmpty():
+            print("???")
+            raise Exception("Can not pop with empty stack!\n")
+            return None
+        temp = self.stack[self.top]
+        self.stack[self.top] = None
+        self.numElems -= 1
+        self.top -= 1
+        return temp
