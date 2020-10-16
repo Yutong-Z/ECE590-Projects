@@ -75,13 +75,13 @@ def bdfs(maze, alg):
                     queue.push(v)
                     v.prev = current
     path=[]
-    path.append(maze.exit.rank)
     v = maze.exit
     
     #Go backward to find the path until reaching the start vertex
-    while v.rank != maze.start.rank:
-        v = v.prev
+    while v != None:
+        
         path.append(v.rank)
+        v = v.prev
     
         
         
