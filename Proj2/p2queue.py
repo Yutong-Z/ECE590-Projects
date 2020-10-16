@@ -91,7 +91,6 @@ class Queue:
     def pop(self):
         if self.isEmpty():
             raise Exception("Can not pop with empty queue!\n")
-            return
         temp = self.queue[self.front]
         self.queue[self.front] = None
         self.front += 1

@@ -86,7 +86,6 @@ class Stack:
     def pop(self):
         if self.isEmpty():
             raise Exception("Can not pop with empty stack!\n")
-            return
         temp = self.stack[self.top]
         self.stack[self.top] = None
         self.numElems -= 1
