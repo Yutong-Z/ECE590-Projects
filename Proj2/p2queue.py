@@ -5,8 +5,8 @@ Fall 2020
 
 p2queue.py
 
-Partner 1:
-Partner 2:
+Partner 1: Yutong Zhaang (yz566)
+Partner 2: Jiaxi Yin (jy280)
 Date:
 """
 

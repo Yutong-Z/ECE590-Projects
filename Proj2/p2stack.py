@@ -5,9 +5,9 @@ Fall 2020
 
 p2stack.py
 
-Partner 1:
-Partner 2:
-Date:
+Partner 1: Yutong Zhaang (yz566)
+Partner 2: Jiaxi Yin (jy280)
+Date: 15/10/2020
 """
 
 """
