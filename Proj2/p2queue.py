@@ -7,7 +7,7 @@ p2queue.py
 
 Partner 1: Yutong Zhaang (yz566)
 Partner 2: Jiaxi Yin (jy280)
-Date:
+Date: 15/10/2020
 """
 
 """
@@ -49,7 +49,7 @@ class Queue:
     isFull function to check if the queue is full.
     """
     def isFull(self):
-        if self.numElems == len(self.stack):
+        if self.numElems == len(self.queue):
             return True
         return False
 
@@ -68,14 +68,14 @@ class Queue:
     def resize(self):
         self.queue = self.queue[self.front:]+self.queue[:self.rear]+[None for x in range(0,len(self.queue))]
         self.front = 0
-        self.rear = len(self.queue)
+        self.rear = self.numElems
         return
 
     """
     push function to push a value into the rear of the queue.
     """
     def push(self, val):
-        if self.isFull:
+        if self.isFull():
             self.resize()
         self.queue[self.rear] = val
         self.rear += 1
@@ -89,10 +89,11 @@ class Queue:
     pop function to pop the value from the front of the queue.
     """
     def pop(self):
-        if self.isEmpty:
+        if self.isEmpty():
             raise Exception("Can not pop with empty queue!\n")
             return
         temp = self.queue[self.front]
+        self.queue[self.front] = None
         self.front += 1
         self.numElems -= 1
         return temp
