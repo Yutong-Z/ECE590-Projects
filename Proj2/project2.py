@@ -30,12 +30,7 @@ def bdfs(maze, alg):
         raise Exception('Incorrect alg! Need BFS or DFS!')
     
     if alg == 'DFS':
-        
-        #Initalize all values
-        for v in maze.adjList:
-            v.visited = False
-            v.prev = None
-        
+                
         #Create an empty stack
         stack = Stack()
         
@@ -48,7 +43,7 @@ def bdfs(maze, alg):
             #Push neighbors of current vertex to stack if not visited
             for v in current.neigh:
                 if not v.visited:
-                    v.visted = True
+                    v.visited = True
                     stack.push(v)
                     v.prev = current
                     
@@ -74,19 +69,16 @@ def bdfs(maze, alg):
                     v.dist = current.dist + 1
                     queue.push(v)
                     v.prev = current
-    path=[]
-    v = maze.exit
-    
+
     #Go backward to find the path until reaching the start vertex
-    while v != None:
-        
-        path.append(v.rank)
+    v = maze.exit
+    while v != None:      
+        maze.path.append(v.rank)
         v = v.prev
-    
-        
         
     #Reverse the path to get the correct order from start to exit
-    return path.reverse()
+    maze.path.reverse()
+    return maze.path
     
 
 """
