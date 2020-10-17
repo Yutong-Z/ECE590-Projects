@@ -60,7 +60,6 @@ def bdfs(maze, alg):
         queue.push(maze.start)
         while not queue.isEmpty():
             current = queue.pop()
-            print(queue)
             #Push neighbors of current vertex to queue if not visited
             for v in current.neigh:
                 if v.dist == math.inf:
