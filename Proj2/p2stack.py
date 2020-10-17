@@ -73,6 +73,7 @@ class Stack:
     push function to push a value onto the stack.
     """
     def push(self, val):
+        #Resize when pushing to a full stack
         if self.isFull():
             self.resize()
         self.top += 1
@@ -84,6 +85,7 @@ class Stack:
     pop function to pop the value off the top of the stack.
     """
     def pop(self):
+        #Exit when pop on empty stack
         if self.isEmpty():
             raise Exception("Can not pop with empty stack!\n")
         temp = self.stack[self.top]

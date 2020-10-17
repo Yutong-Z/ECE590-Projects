@@ -66,6 +66,7 @@ class Queue:
     Note: we also reset the front to index 0.
     """
     def resize(self):
+        #Reset the wrapped around queue and double the size
         self.queue = self.queue[self.front:]+self.queue[:self.rear]+[None for x in range(0,len(self.queue))]
         self.front = 0
         self.rear = self.numElems
@@ -75,12 +76,13 @@ class Queue:
     push function to push a value into the rear of the queue.
     """
     def push(self, val):
+        #Resize when pushing to a full queue
         if self.isFull():
             self.resize()
         self.queue[self.rear] = val
         self.rear += 1
         self.numElems += 1
-        # wrap around
+        #Wrap around
         if self.rear == len(self.queue):
             self.rear = 0;
         return
@@ -89,13 +91,14 @@ class Queue:
     pop function to pop the value from the front of the queue.
     """
     def pop(self):
+        #Exit when pop on empty queue
         if self.isEmpty():
             raise Exception("Can not pop with empty queue!\n")
         temp = self.queue[self.front]
         self.queue[self.front] = None
         self.front += 1
         self.numElems -= 1
-        # wrap around
+        #Wrap around
         if self.front == len(self.queue):
             self.front = 0;
         return temp
