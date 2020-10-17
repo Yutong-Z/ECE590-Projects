@@ -31,7 +31,11 @@ def bdfs(maze, alg):
     
     if alg == 'DFS':
         
-        #All vertex values are initialized with maze constructor        
+        #Initalize all values
+        for v in maze.adjList:
+            v.visited = False
+            v.prev = None 
+
         #Create an empty stack
         stack = Stack()
         
@@ -51,7 +55,12 @@ def bdfs(maze, alg):
                     v.prev = current
                     
     else:
-         
+        
+        #Initalize all values
+        for v in maze.adjList:
+            v.dist = math.inf
+            v.prev = None
+        
         #Create an empty queue
         queue = Queue()
         
@@ -69,13 +78,14 @@ def bdfs(maze, alg):
 
     #Go backward to find the path until reaching the start vertex
     v = maze.exit
+    path = []
     while v != None:      
-        maze.path.append(v.rank)
+        path.append(v.rank)
         v = v.prev
         
     #Reverse the path to get the correct order from start to exit
-    maze.path.reverse()
-    return maze.path
+    path.reverse()
+    return path
     
 
 """
