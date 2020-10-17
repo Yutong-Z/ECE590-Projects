@@ -30,7 +30,8 @@ def bdfs(maze, alg):
         raise Exception('Incorrect alg! Need BFS or DFS!')
     
     if alg == 'DFS':
-                
+        
+        #All vertex values are initialized with maze constructor        
         #Create an empty stack
         stack = Stack()
         
@@ -39,7 +40,9 @@ def bdfs(maze, alg):
         stack.push(maze.start)
         while not stack.isEmpty():
             current = stack.pop()
-            
+#            #Break if maze.exit is reached
+#            if current.isEqual(maze.exit):
+#                break
             #Push neighbors of current vertex to stack if not visited
             for v in current.neigh:
                 if not v.visited:
@@ -48,12 +51,7 @@ def bdfs(maze, alg):
                     v.prev = current
                     
     else:
-        
-        #Initalize all values
-        for v in maze.adjList:
-            v.dist = math.inf
-            v.prev = None
-            
+         
         #Create an empty queue
         queue = Queue()
         
@@ -62,7 +60,7 @@ def bdfs(maze, alg):
         queue.push(maze.start)
         while not queue.isEmpty():
             current = queue.pop()
-            
+            print(queue)
             #Push neighbors of current vertex to queue if not visited
             for v in current.neigh:
                 if v.dist == math.inf:
