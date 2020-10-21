@@ -36,6 +36,11 @@ def testMazes(verbosity=False):
     m.solve('DFS',verbosity,False)
     print('Testing Maze 3, BFS')
     m.solve('BFS',verbosity,False)
+    m = Maze(4,verbosity)
+    print('Testing Maze 4, DFS')
+    m.solve('DFS',verbosity,False)
+    print('Testing Maze 4, BFS')
+    m.solve('BFS',verbosity,False)
     plt.show()
     return
 
