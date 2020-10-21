@@ -44,9 +44,9 @@ def bdfs(maze, alg):
         stack.push(maze.start)
         while not stack.isEmpty():
             current = stack.pop()
-#            #Break if maze.exit is reached
-#            if current.isEqual(maze.exit):
-#                break
+            #Break if maze.exit is reached
+            if current.isEqual(maze.exit):
+                break
             #Push neighbors of current vertex to stack if not visited
             for v in current.neigh:
                 if not v.visited:
@@ -69,6 +69,9 @@ def bdfs(maze, alg):
         queue.push(maze.start)
         while not queue.isEmpty():
             current = queue.pop()
+            #Break if maze.exit is reached
+            if current.isEqual(maze.exit):
+                break
             #Push neighbors of current vertex to queue if not visited
             for v in current.neigh:
                 if v.dist == math.inf:
