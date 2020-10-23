@@ -7,7 +7,7 @@ project2.py
 
 Partner 1: Yutong Zhang (yz566)
 Partner 2: Jiaxi Yin (jy280)
-Date:
+Date: 20/10/2020
 """
 
 # Import math and other p2 files.

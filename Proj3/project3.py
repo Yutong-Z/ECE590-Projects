@@ -3,9 +3,9 @@ Math 560
 Project 3
 Fall 2020
 
-Partner 1:
-Partner 2:
-Date:
+Partner 1: Yutong Zhang (yz566)
+Partner 2: Jiaxi Yin (jy280)
+Date: 22/10/2020
 """
 
 # Import math and p3tests.
@@ -28,10 +28,8 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
 rates2mat
 """
 def rates2mat(rates):
-    ##### Your implementation goes here. #####
-    # Currently this only returns a copy of the rates matrix.
-    return [[R for R in row] for row in rates]
-    ##### Your implementation goes here. #####
+    # Returns the adjacency matrix with the weighted edges converted from exchange rates.
+    return [[-math.log(R) for R in row] for row in rates]
 
 """
 Main function.
