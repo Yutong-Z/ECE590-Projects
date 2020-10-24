@@ -47,14 +47,31 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
                 neigh.prev = v
                 changed.append(neigh)
     
-    # trace back to find the arbitrage path
-    # remove any vertices that are not part of the cycle (HOW???)
-    v = changed[0] # randomly select a changed vertex???
-    path = []
-    while v.prev != changed[0]:
-        path.append(v)
-    path.reverse()
-    return path
+    # If there is negative cost cycle
+    if len(changed)>0:
+        # Find a vertex in the cycle by checking double appearance
+        app = [0 for vertex in adjList]
+        # Randomly select a changed vertex changed
+        v = changed[0]
+        # Trace back to find a vertex in cycle, name it v0
+        while app[v.rank] != 2:
+            app[v.rank] += 1
+            v = v.prev
+        v0 = v
+        
+        # Trace back from v0 to find the arbitrage path
+        path = [v0.rank]
+        while v.prev != v0:
+            v  = v.prev
+            path.append(v.rank)
+        path.append(v.prev.rank)
+        # Reverse the trace back path to get the original path
+        path.reverse()
+        return path
+    
+    # Return empty list if there is not negative cost cycle
+    else:
+        return []
 
 ################################################################################
 
