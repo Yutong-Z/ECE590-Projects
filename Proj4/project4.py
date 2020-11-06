@@ -58,11 +58,11 @@ def ED(src, dest):
             j -= 1
         else: 
             #Find where the minimum came from and trace back
-            if D[i][j-1] == D[i][j]:
+            if D[i][j-1] + 1 == D[i][j]:
                 #Minimum came from left cell
                 edits.append(('insert', str(dest[j-1]), i))
                 j -= 1
-            elif D[i-1][j] == D[i][j]:
+            elif D[i-1][j] + 1 == D[i][j]:
                 #Minimum came from upper cell
                 edits.append(('delete', str(src[i-1]), i-1))
                 i -=1
