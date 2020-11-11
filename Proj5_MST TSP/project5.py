@@ -50,9 +50,6 @@ def prim(adjList, adjMat):
                     neighbor.cost = adjMat[v.rank][neighbor.rank]
                     neighbor.prev = v
     
-    
-    
-    
     return
 
 
