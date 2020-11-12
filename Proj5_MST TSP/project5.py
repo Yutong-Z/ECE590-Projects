@@ -68,14 +68,13 @@ def kruskal(adjList, edgeList):
     X = []
     
     # Loop through the sorted edges in increasing order
-    for e in edge:
+    for e in edgeList:
         #If the min edge crosses a cut, add it to our MST
         u, v =  e.vertices
         if not find(u).isEqual(find(v)):
             X.append(e)
             union(u, v)
-    
-    
+     
     return X
 
 ################################################################################
@@ -136,7 +135,6 @@ def union(u,v):
         #Increse rv.height by 1
         rv.height += 1
     
-    
     return
 
 ################################################################################
@@ -145,8 +143,33 @@ def union(u,v):
 TSP
 """
 def tsp(adjList, start):
-    ##### Your implementation goes here. #####
+    #Initialize empty tour list
     tour = []
+    #Falg all vertices as unvisited
+    for v in adjList:
+        v.visited = False
+    
+    #Initialize a stack list for DFS
+    stack = []
+    #Arbitrarily select a start vertex
+    stack.append(adjList[0])
+    
+    #While there are vertices left to visit
+    while len(stack)!=0:
+        #Pop the last vertex in stck list, and put it in tour list
+        curr = stack.pop(-1)
+        curr.visited = True
+        tour.append(curr.rank)
+        
+        #For each MST neighbor of curr
+        for neigh in curr.mstN:
+            #Push only unvisited neigbor into stack
+            if neigh.visited == False:
+                stack.append(neigh)
+    
+    #Append start vertex into tour
+    tour.append(adjList[0].rank)
+    
     return tour
 
 ################################################################################
