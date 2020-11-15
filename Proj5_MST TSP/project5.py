@@ -112,7 +112,6 @@ makeset: this function will create a singleton set with root v.
 """
 def makeset(v):
     '''
-
     Parameters
     ----------
     v : a vertex
@@ -120,7 +119,6 @@ def makeset(v):
     Returns
     -------
     None.
-
     '''
     
     v.pi = v
@@ -134,16 +132,13 @@ Note: we will use path compression here.
 """
 def find(v):
     '''
-
     Parameters
     ----------
     v : a vertex
 
     Returns
     -------
-    v.pi: the root vertex
-        
-
+    v.pi: the root vertex        
     '''
     
     while not v.isEqual(v.pi):
@@ -156,7 +151,6 @@ union: this function will union the sets of vertices v and u.
 """
 def union(u,v):
     '''
-
     Parameters
     ----------
     u, v : two different vertices
@@ -164,7 +158,6 @@ def union(u,v):
     Returns
     -------
     None.
-
     '''
     #Find the root of u and root of v
     ru = find(u)
@@ -196,7 +189,6 @@ TSP
 """
 def tsp(adjList, start):
     '''
-
     Parameters
     ----------
     adjList : a list of vertices
@@ -205,7 +197,6 @@ def tsp(adjList, start):
     Returns
     -------
     tour : the tour array of vertex ranks
-
     '''
     #Initialize empty tour list
     tour = []
