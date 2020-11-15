@@ -20,8 +20,6 @@ from p5priorityQueue import *
 """
 Prim's Algorithm
 """
-
-
 def prim(adjList, adjMat):
     '''
     Parameters
@@ -206,8 +204,8 @@ def tsp(adjList, start):
     
     #Initialize a stack list for DFS
     stack = []
-    #Arbitrarily select a start vertex
-    stack.append(adjList[0])
+    #Push start vertex into stack
+    stack.append(start)
     
     #While there are vertices left to visit
     while len(stack)!=0:
@@ -236,7 +234,7 @@ from p5tests import *
 Main function.
 """
 if __name__ == "__main__":
-    verb = False # Set to true for more printed info.
+    verb = True # Set to true for more printed info.
     print('Testing Prim\n')
     print(testMaps(prim, verb))
     print('\nTesting Kruskal\n')
