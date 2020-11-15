@@ -25,7 +25,17 @@ Prim's Algorithm
 
 
 def prim(adjList, adjMat):
-   
+    '''
+    Parameters
+    ----------
+    adjList : a list of vertices
+    adjMat : a matrix containing distance bewteen vertices
+
+    Returns
+    -------
+    None.
+
+    '''
     # Initialize all costs to infinity and prev to null
     for v in adjList:
         v.prev = None
@@ -61,6 +71,17 @@ Note: the edgeList is ALREADY SORTED!
 Note: Use the isEqual method of the Vertex class when comparing vertices.
 """
 def kruskal(adjList, edgeList):
+    '''
+    Parameters
+    ----------
+    adjList : a list of vertices
+    edgeList : a sorted list of edges
+
+    Returns
+    -------
+    X : a list of edges that are in the MST
+
+    '''
     # Initialize all singleton sets for each vertex
     for v in adjList:
         makeset(v)
@@ -143,6 +164,19 @@ def union(u,v):
 TSP
 """
 def tsp(adjList, start):
+    '''
+
+    Parameters
+    ----------
+    adjList : a list of vertices
+    start : start vertex
+
+    Returns
+    -------
+    tour : the tour array of vertex ranks
+
+    ''' 
+      
     #Initialize empty tour list
     tour = []
     #Falg all vertices as unvisited
