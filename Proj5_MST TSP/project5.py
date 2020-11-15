@@ -234,7 +234,7 @@ from p5tests import *
 Main function.
 """
 if __name__ == "__main__":
-    verb = True # Set to true for more printed info.
+    verb = False # Set to true for more printed info.
     print('Testing Prim\n')
     print(testMaps(prim, verb))
     print('\nTesting Kruskal\n')
