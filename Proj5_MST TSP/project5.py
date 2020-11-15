@@ -1,9 +1,7 @@
-
 """
 Math 560
 Project 5
 Fall 2020
-
 Partner 1: Yutong Zhang(yz566)
 Partner 2: Jiaxi Yin(jy280)
 Date: 11/13/2020
@@ -36,6 +34,7 @@ def prim(adjList, adjMat):
     None.
 
     '''
+   
     # Initialize all costs to infinity and prev to null
     for v in adjList:
         v.prev = None
@@ -105,7 +104,6 @@ Disjoint Set Functions:
     makeset
     find
     union
-
 These functions will operate directly on the input vertex objects.
 """
 
@@ -113,6 +111,17 @@ These functions will operate directly on the input vertex objects.
 makeset: this function will create a singleton set with root v.
 """
 def makeset(v):
+    '''
+
+    Parameters
+    ----------
+    v : a vertex
+
+    Returns
+    -------
+    None.
+
+    '''
     
     v.pi = v
     v.height = 0
@@ -122,9 +131,20 @@ def makeset(v):
 """
 find: this function will return the root of the set that contains v.
 Note: we will use path compression here.
-
 """
 def find(v):
+    '''
+
+    Parameters
+    ----------
+    v : a vertex
+
+    Returns
+    -------
+    v.pi: the root vertex
+        
+
+    '''
     
     while not v.isEqual(v.pi):
         v = v.pi
@@ -135,6 +155,17 @@ def find(v):
 union: this function will union the sets of vertices v and u.
 """
 def union(u,v):
+    '''
+
+    Parameters
+    ----------
+    u, v : two different vertices
+
+    Returns
+    -------
+    None.
+
+    '''
     #Find the root of u and root of v
     ru = find(u)
     rv = find(v)
@@ -175,8 +206,7 @@ def tsp(adjList, start):
     -------
     tour : the tour array of vertex ranks
 
-    ''' 
-      
+    '''
     #Initialize empty tour list
     tour = []
     #Falg all vertices as unvisited
